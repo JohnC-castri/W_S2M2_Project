@@ -98,8 +98,9 @@
     // 🧠 Examples of usage:
     // pushElement([], 1) // should return [1]
     // pushElement(['a', 'b'], 'c') // should return ['a', 'b', 'c']
-    function pushElement() {
-
+    function pushElement(init, pushed) {
+      init[init.length] = pushed
+      return init
     }
 
     // 👉 CHALLENGE 7
@@ -114,7 +115,15 @@
     // 🧠 At each iteration of the loop, if the current character is not "x", then add it to the end of the result array.
     // 🧠 You can merge the result array back into a string by using join. Example: ["f", "o", "o"].join("") yields "foo"
     // 🧠 Do not forget to return your rejoined string!
-    function stripX() {
+    function stripX(stripp) {
+      let splitted = stripp.split('')
+      for (let i in splitted) {
+        if (splitted[i] === 'x') {
+          delete splitted[i]
+        }
+      }
+      let complete = splitted.join('')
+      return complete
 
     }
 
@@ -127,7 +136,15 @@
     // ❗ Important Notes:
     // 🧠 Try to solve this problem without looking at how you solved the previous one.
     // 🧠 If you need to look, do not copy & paste code. Take a peek and then work from memory!
-    function stripChar() {
+    function stripChar(orig, del) {
+      let origsplit = orig.split('')
+      for (let i in origsplit) {
+        if (origsplit[i] === del) {
+          delete origsplit[i]
+        }
+      }
+      let compspli = origsplit.join('')
+      return compspli
 
     }
 
@@ -140,9 +157,15 @@
     // getProps({ lastName: "Smith", age: 35 }) // should return ["lastName"]
     // getProps({ firstName: "Jane", married: false }) // should return ["firstName"]
     // getProps({ name: "Bamby", favFood: "flowers" }) // should return ["name", "favFood"]
-    function getProps() {
-
+    function getProps(obj) {
+      let objcopy = []
+      for (let property in obj) {
+        if (property !== 'married' && property !== 'age') {
+          objcopy[objcopy.length] = property
+        } 
     }
+    return objcopy
+  }
 
     // 🧪 TESTS, do not work below this line
     // 🧪 TESTS, do not work below this line
