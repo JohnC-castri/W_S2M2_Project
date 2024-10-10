@@ -46,7 +46,7 @@
     // deletePrice({ item: "Tesla Model 3", price: 40000 }) // should return { item: "Tesla Model 3" }
     // deletePrice({ item: "Kobo Libra 2" }) // should return { item: "Kobo Libra 2", priceless: true }
     function deletePrice(objectarg) {
-      if (objectarg === 'price') {
+      if (objectarg.price !== undefined) {
         delete objectarg.price
       }
       else {
@@ -61,8 +61,17 @@
     // 🧠 Examples of usage:
     // evenList(['a']) // should return false
     // evenList(['a', 'b']) // should return true
-    function evenList(arr) {
 
+    function evenList(arr) {
+      let amount = arr.length
+      let conclusion = null
+      if (amount % 2 === 0) {
+        conclusion = true
+      }
+      else {
+        conclusion = false
+      }
+      return conclusion
     }
 
     // 👉 CHALLENGE 5
@@ -71,7 +80,15 @@
     // 🧠 Examples of usage:
     // firstOrLast(['a', 'b'], true) // should return 'a'
     // firstOrLast(['a', 'b'], false) // should return 'b'
-    function firstOrLast() {
+    function firstOrLast(arr, Bool) {
+      let posish = null
+      if (Bool === true) {
+        posish = arr[0]
+      }
+      else {
+        posish = arr.at(-1)
+      }
+      return posish
 
     }
 
